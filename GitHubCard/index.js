@@ -1,9 +1,12 @@
+import axios from 'axios';
+
 /*
   STEP 1: using axios, send a GET request to the following URL
     (replacing the placeholder with your Github name):
     https://api.github.com/users/<your name>
 */
-
+const result = axios.get("https://api.github.com/users/TheCodeRanger");
+console.log(result);
 /*
   STEP 2: Inspect and study the data coming back, this is YOUR
     github info! You will need to understand the structure of this
@@ -49,7 +52,46 @@ const followersArray = [];
       </div>
     </div>
 */
+  function cardMaker({}) {
+//Instantiated elements:
+    const card = document.createElement("div");
+    const cardImg = document.createElement("img");
+    const cardInfo = document.createElement("div");
+    const userName = document.createElement("h3");
+    const userNameInput = document.createElement("p");
+    const userLocation = document.createElement("p");
+    const userProfile = document.createElement("p");
+    const profileLink = document.createElement("a");
+    const followers = document.createElement("p");
+    const following = document.createElement("p");
+    const bio = document.createElement("p");
+//Element structure
+    card.appendChild(cardImg);
+    card.appendChild(cardInfo);
+    cardInfo.appendChild(userName);
+    cardInfo.appendChild(userNameInput);
+    cardInfo.appendChild(userLocation);
+    cardInfo.appendChild(userProfile);
+    userProfile.appendChild(profileLink);
+    cardInfo.appendChild(followers);
+    cardInfo.appendChild(following);
+    cardInfo.appendChild(bio);
+//Added class names
+    card.classList.add("card");
+    cardInfo.classList.add("card-info");
+    userName.classList.add("name");
+    userNameInput.classList.add("username");
+//Raw material
+    cardImg.src = object.avatar_url;
+    userName.textContent = object.name;
+    userNameInput.textContent = object.login;
+    userLocation.textContent = object.location;
+    followers.tectContent = object.followers;
+    following.textContent = object.following;
+    bio.textContent = object.bio;
 
+    return card;
+  }
 /*
   List of LS Instructors Github username's:
     tetondan
